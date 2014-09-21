@@ -1,1 +1,2 @@
+brick-0.0.4 增加对favicon.ico的请求的处理
 brick-0.0.3 增加对controller的路由功能
