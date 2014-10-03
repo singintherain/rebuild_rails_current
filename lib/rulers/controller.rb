@@ -1,5 +1,6 @@
 require 'erubis'
 require 'rulers/file_model'
+require 'rack/request'
 
 module Rulers
   class Controller
@@ -7,6 +8,14 @@ module Rulers
 
     def initialize(env)
       @env = env
+    end
+
+    def request
+      @request ||= Rack::Request.new(@env)
+    end
+
+    def params
+      request.params
     end
 
     def env
