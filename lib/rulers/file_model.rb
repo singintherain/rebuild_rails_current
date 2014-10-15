@@ -61,6 +61,9 @@ TEMPLATE
 
         FileModel.new "db/quotes/#{id}.json"
       end
+
+      def update_attributes(attrs={})
+      end
     end
   end
 end

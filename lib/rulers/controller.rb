@@ -35,5 +35,20 @@ module Rulers
       klass = klass.to_s.gsub /Controller$/, ""
       Rulers.to_underscore klass
     end
+
+    def response(text, status = 200, headers = {})
+      raise "Already responded!" if @response
+      a = [text].flatten
+      @response = Rack::Response.new(a, status, headers)
+    end
+
+    def render_response(*args)
+      response(render(*args))
+    end
+
+    def get_response
+      @response
+    end
+
   end
 end
